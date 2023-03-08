@@ -30,9 +30,9 @@
         }
       }
     },
-    "/flowerstock": {
+    "/golfstock": {
       "post": {
-        "operationId": "postFlowerstock",
+        "operationId": "postgolfstock",
         "requestBody": {
           "required": true,
           "content": {
@@ -40,10 +40,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "flowertype": {
+                  "club": {
                     "type": "string"
                   },
-                  "color": {
+                  "brand": {
                     "type": "string"
                   }
                 }
@@ -53,7 +53,7 @@
         },
         "responses": {
           "200": {
-            "description": "A flower inventory object.",
+            "description": "A golf inventory object.",
             "content": {
               "application/json": {
                 "schema": {
@@ -62,13 +62,13 @@
                     "identifiers": {
                       "type": "object",
                       "properties": {
-                        "color": {
+                        "brand": {
                           "type": "string",
-                          "example": "red"
+                          "example": "nike"
                         },
-                        "flowertype": {
+                        "club": {
                           "type": "string",
-                          "example": "rose"
+                          "example": "putter"
                         }
                       }
                     },
@@ -110,10 +110,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "flowertype": {
+                  "club": {
                     "type": "string"
                   },
-                  "color": {
+                  "brand": {
                     "type": "string"
                   },
                   "number": {
@@ -137,7 +137,58 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Thankyou for your order!"
+                      "example": "Thank you for your order!"
+                    },
+                    "key": {
+                      "type": "string",
+                      "example": "no_match"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sell": {
+      "post": {
+        "operationId": "postSell",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "club": {
+                    "type": "string"
+                  },
+                  "brand": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Selling Confirmation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Thank you for selling us flowers!"
                     },
                     "key": {
                       "type": "string",
