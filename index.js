@@ -74,19 +74,23 @@ app.post('/order', (req, res) => {
         type.toLowerCase() == 'drivers')) {
         var totals = (parseFloat(nikedriver['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your order', 'key': 'match' };
+        nikedriver['number'] = nikedriver['number'] - '1';
     }
     if (brand.toLowerCase() == "taylormade" && (type.toLowerCase() == "putter" || type.toLowerCase() == 'putters')) {
         var totals = (parseFloat(taylormadeputter['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your order', 'key': 'match' };
+        taylormadeputter['number'] = taylormadeputter['number'] - 1;
     }
     if (brand.toLowerCase() == "taylormade" && (type.toLowerCase() == "driver" ||
         type.toLowerCase() == 'drivers')) {
         var totals = (parseFloat(taylormadedriver['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your order', 'key': 'match' };
+        taylormadedriver['number'] = taylormadedriver['number'] - 1;
     }
     if (brand.toLowerCase() == "callaway" && (type.toLowerCase() == "iron" || type.toLowerCase() == 'irons')) {
         var totals = (parseFloat(callawayiron['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your order', 'key': 'match' };
+        callawayiron['number'] = callawayiron['number'] - 1;
     }
 
     //send the resoonse back 
@@ -106,24 +110,29 @@ app.post('/order', (req, res) => {
     if (brand.toLowerCase() == "nike" && (type.toLowerCase() == "putter" || type.toLowerCase() == 'putters')) {
         var totals = (parseFloat(nikeputter['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your sale', 'key': 'match' };
+        nikeputter['number'] = nikeputter['number'] + '1';
     }
     if (brand.toLowerCase() == "nike" && (type.toLowerCase() == "putter" ||
         type.toLowerCase() == 'putters')) {
         var totals = (parseFloat(nikeputter['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your sale', 'key': 'match' };
+        nikedriver['number'] = nikedriver['number'] + '1';
     }
     if (brand.toLowerCase() == "taylormade" && (type.toLowerCase() == "driver" || type.toLowerCase() == 'drivers')) {
         var totals = (parseFloat(taylormadedriver['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your sale', 'key': 'match' };
+        taylormadedriver['number'] = taylormadedriver['number'] + 1;
     }
     if (brand.toLowerCase() == "taylormade" && (type.toLowerCase() == "putter" ||
         type.toLowerCase() == 'putters')) {
         var totals = (parseFloat(taylormadeputter['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your sale', 'key': 'match' };
+        taylormadeputter['number'] = taylormadeputter['number'] + 1;
     }
     if (color.toLowerCase() == "callaway" && (type.toLowerCase() == "iron" || type.toLowerCase() == 'irons')) {
         var totals = (parseFloat(callawayiron['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your sale', 'key': 'match' };
+        callawayiron['number'] = callawayiron['number'] + 1;
     }
 
     //send the resoonse back 
