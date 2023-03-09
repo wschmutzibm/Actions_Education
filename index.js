@@ -68,7 +68,7 @@ app.post('/order', (req, res) => {
     if (brand.toLowerCase() == "nike" && (type.toLowerCase() == "putter" || type.toLowerCase() == 'putters')) {
         var totals = (parseFloat(nikeputter['cost']) * number);
         resp = { 'total': totals, 'message': 'Thank you for your order', 'key': 'match' };
-        nikeputter['number'] = '21'
+        nikeputter['number'] = nikeputter['number'] - '1';
     }
     if (brand.toLowerCase() == "nike" && (type.toLowerCase() == "driver" ||
         type.toLowerCase() == 'drivers')) {
